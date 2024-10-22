@@ -2,7 +2,7 @@
   "name": "my-new-portfolio",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://AhmadQA-art.github.io/propease",
+  "homepage": "https://AhmadQA-art.github.io",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
