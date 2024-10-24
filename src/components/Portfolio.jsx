@@ -1,129 +1,126 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Code, Workflow, Bot, ChevronDown, ExternalLink, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Menu, X, Code, Workflow, Bot, ChevronDown, ExternalLink, Github, Linkedin, Mail } from 'lucide-react';
 import profileImage from '../assets/profile2.jpeg';
+import crm from '../assets/crm1.png';
+import chat from '../assets/chatbot.png';
 
-const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+// const Navigation = () => {
+//   const [isOpen, setIsOpen] = useState(false);
+//   const [isVisible, setIsVisible] = useState(true);
+//   const [lastScrollY, setLastScrollY] = useState(0);
 
-  useEffect(() => {
-    const controlNavbar = () => {
-      if (typeof window !== 'undefined') {
-        if (window.scrollY > lastScrollY) {
-          setIsVisible(false);
-        } else {
-          setIsVisible(true);
-        }
-        setLastScrollY(window.scrollY);
-      }
-    };
+//   useEffect(() => {
+//     const controlNavbar = () => {
+//       if (typeof window !== 'undefined') {
+//         if (window.scrollY > lastScrollY) {
+//           setIsVisible(false);
+//         } else {
+//           setIsVisible(true);
+//         }
+//         setLastScrollY(window.scrollY);
+//       }
+//     };
 
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', controlNavbar);
-      return () => {
-        window.removeEventListener('scroll', controlNavbar);
-      };
-    }
-  }, [lastScrollY]);
+//     if (typeof window !== 'undefined') {
+//       window.addEventListener('scroll', controlNavbar);
+//       return () => {
+//         window.removeEventListener('scroll', controlNavbar);
+//       };
+//     }
+//   }, [lastScrollY]);
 
-  return (
-    <div className={`fixed w-full z-50 transition-transform duration-300 pt-4 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-      <nav className="bg-[#ded7c7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-end items-center h-16"> {/* Shifted items to the right */}
-            <div className="hidden md:flex space-x-7"> {/* Increased top padding */}
-              <a href="#about" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg sans-serif">about</a>
-              <a href="#skills" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg sans-serif">skills</a>
-              <a href="#portfolio" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg sans-serif">portfolio</a>
-              <a href="#services" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg sans-serif">services</a>
-              <a href="#contact" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg sans-serif">contact</a>
-            </div>
-            <div className="md:hidden ml-auto">
-              <button onClick={() => setIsOpen(!isOpen)} className="text-[#333332]">
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
-          </div>
-        </div>
+//   return (
+//     <div className={`fixed w-full z-50 transition-transform duration-300 pt-4 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+//       <nav className="bg-[#ded7c7]">
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//           <div className="flex justify-end items-center h-16"> {/* Shifted items to the right */}
+//             <div className="hidden md:flex space-x-7"> {/* Increased top padding */}
+//               <a href="#about" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg sans-serif">about</a>
+//               <a href="#skills" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg sans-serif">skills</a>
+//               <a href="#portfolio" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg sans-serif">portfolio</a>
+//               <a href="#services" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg sans-serif">services</a>
+//               <a href="#contact" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg sans-serif">contact</a>
+//             </div>
+//             <div className="md:hidden ml-auto">
+//               <button onClick={() => setIsOpen(!isOpen)} className="text-[#333332]">
+//                 {isOpen ? <X size={24} /> : <Menu size={24} />}
+//               </button>
+//             </div>
+//           </div>
+//         </div>
 
-        {isOpen && (
-          <div className={`fixed w-full z-50 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-          <nav className="bg-[#ded7c7] font-worksans">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-end items-center h-16">
-                <div className="hidden md:flex space-x-7">
-                  <a href="#about" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg">about</a>
-                  <a href="#skills" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg">skills</a>
-                  <a href="#portfolio" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg">portfolio</a>
-                  {/* <a href="#services" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg">services</a> */}
-                  {/* <a href="#contact" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg">contact</a> */}
-                </div>
-                <div className="md:hidden ml-auto">
-                  <button onClick={() => setIsOpen(!isOpen)} className="text-[#333332]">
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
-                  </button>
-                </div>
-              </div>
-            </div>
-        
-            {isOpen && (
-              <div className="md:hidden">
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                  <a href="#about" className="block px-3 py-2 text-[#333332] lowercase text-lg">about</a>
-                  <a href="#skills" className="block px-3 py-2 text-[#333332] lowercase text-lg">skills</a>
-                  <a href="#portfolio" className="block px-3 py-2 text-[#333332] lowercase text-lg">portfolio</a>
-                  {/* <a href="#services" className="block px-3 py-2 text-[#333332] lowercase text-lg">services</a> */}
-                  {/* <a href="#contact" className="block px-3 py-2 text-[#333332] lowercase text-lg">contact</a> */}
-                </div>
-              </div>
-            )}
-          </nav>
-        </div>
-        
-        )}
-      </nav>
-    </div>
-  );
-};
+//         {isOpen && (
+//           <div className={`fixed w-full z-50 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+//           <nav className="bg-[#ded7c7] font-worksans">
+//             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//               <div className="flex justify-end items-center h-16">
+//                 <div className="hidden md:flex space-x-7">
+//                   <a href="#about" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg">about</a>
+//                   <a href="#skills" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg">skills</a>
+//                   <a href="#portfolio" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg">portfolio</a>
+//                   {/* <a href="#services" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg">services</a> */}
+//                   {/* <a href="#contact" className="text-[#333332] hover:text-gray-700 transition duration-300 lowercase text-lg">contact</a> */}
+//                 </div>
+//                 <div className="md:hidden ml-auto">
+//                   <button onClick={() => setIsOpen(!isOpen)} className="text-[#333332]">
+//                     {isOpen ? <X size={24} /> : <Menu size={24} />}
+//                   </button>
+//                 </div>
+//               </div>
+//             </div>
+
+//             {isOpen && (
+//               <div className="md:hidden">
+//                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+//                   <a href="#about" className="block px-3 py-2 text-[#333332] lowercase text-lg">about</a>
+//                   <a href="#skills" className="block px-3 py-2 text-[#333332] lowercase text-lg">skills</a>
+//                   <a href="#portfolio" className="block px-3 py-2 text-[#333332] lowercase text-lg">portfolio</a>
+//                   {/* <a href="#services" className="block px-3 py-2 text-[#333332] lowercase text-lg">services</a> */}
+//                   {/* <a href="#contact" className="block px-3 py-2 text-[#333332] lowercase text-lg">contact</a> */}
+//                 </div>
+//               </div>
+//             )}
+//           </nav>
+//         </div>
+
+//         )}
+//       </nav>
+//     </div>
+//   );
+// };
 
 const Hero = () => (
   <div className="relative overflow-hidden" style={{ backgroundColor: '#ded7c7' }}>
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-8xl mx-auto">
       <div className="relative z-10 pb-8 min-h-screen flex items-center">
-        <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 flex items-center justify-between">
+        <main className="mt-5 mx-auto max-w-7xl px-4 sm:mt-8 sm:px-6 md:mt-12 lg:mt-16 lg:px-8 xl:mt-20 flex items-center justify-between">
           <div className="sm:text-center lg:text-left">
-            <h2 className="text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl">
-              <strong>Hi, I'm Ahmad</strong>
+            <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl lowercase" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+              <strong>hi, i'm ahmad</strong>
             </h2>
-            <h1 className="text-3xl tracking-tight font-semibold text-[#333332] sm:text-4xl md:text-5xl flex items-center gap-1 mt-1">
-              <span className="text-lg">
-                I am a No-Code Solutions Architect
-              </span>
-              <span className="text-lg relative inline-flex">
-                Building Modern Software Solutions
+            <p className="text-lg text-[#333332] tracking-tight font-semibold mt-1 lowercase max-w-xl" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}> {/* Adjusted max width */}
+              i am a no-code solutions architect{' '}
+              <span className="relative inline-flex">
                 <span className="absolute bottom-1 left-0 bg-yellow-400 opacity-80 w-full h-3 -z-10" />
+                building modern software solutions
               </span>
-            </h1>
-            <div className="mt-0 max-w-2xl"> {/* Added max-width and reduced top margin */}
-              <p className="text-lg text-[#333332] tracking-tight font-semibold flex items-center gap-1 mt-0">
-                Transforming ideas into powerful software solutions using no-code technologies Specializing in web applications, automation, and AI integration.
-              </p>
-            </div>
+              transforming ideas into powerful software solutions using no-code technologies specializing in web applications, automation, and ai integration.
+            </p>
             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-full border border-[#333333] bg-transparent">
-                <a href="#projects" className="w-full flex items-center justify-center px-8 py-3 text-base font-medium rounded-full text-[#333332] bg-transparent hover:bg-[#333333] hover:bg-opacity-20 md:py-4 md:text-lg md:px-10">
-                  Hire Me!
+                <a href="#projects" className="w-full flex items-center justify-center px-4 py-2 h-10 text-base font-medium rounded-full text-[#333332] bg-transparent hover:bg-[#333333] hover:bg-opacity-20 md:py-2 md:text-lg md:px-6" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+                  get in touch
+                  <Mail className="h-5 w-5 ml-2" />
                 </a>
               </div>
-              <div className="mt-3 sm:mt-0 sm:ml-3 rounded-full border border-[#333333] bg-transparent">
-                <a href="#projects" className="w-full flex items-center justify-center px-8 py-3 text-base font-medium rounded-full text-[#333332] bg-transparent hover:bg-[#333333] hover:bg-opacity-20 md:py-4 md:text-lg md:px-10">
-                  View Projects
+              <div className="mt-3 sm:mt-0 sm:ml-3 rounded-full border border-[#36322f] bg-transparent">
+                <a href="#projects" className="w-full flex items-center justify-center px-4 py-2 h-10 text-base font-medium rounded-full text-[#36322f] bg-transparent hover:bg-[#36322f] hover:bg-opacity-20 md:py-2 md:text-lg md:px-6" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+                  portfolio
+                  <ArrowRight size={24} color="#36322f" strokeWidth={1.75} className="ml-2" />
                 </a>
               </div>
             </div>
           </div>
-
           <div className="hidden lg:block ml-10">
             <img
               src={profileImage}
@@ -132,7 +129,6 @@ const Hero = () => (
               style={{ height: '450px' }} // Set a specific height
             />
           </div>
-
         </main>
       </div>
     </div>
@@ -156,35 +152,37 @@ const SkillCard = ({ icon: Icon, title, technologies }) => (
 const Skills = () => (
   <section id="skills" className="py-20 bg-[#ded7c7] bg-opacity-50">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl font-extrabold text-[#333332] sm:text-4xl text-center mb-12">
-        Skills & Technologies
+      <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-left lowercase" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+        <strong>skills & technologies</strong>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <SkillCard
-          icon={Code}
-          title="No-Code Development"
-          technologies={['Bubble', 'FlutterFlow', 'Webflow', 'Framer', 'Figma']}
-        />
-        <SkillCard
-          icon={Workflow}
-          title="Automation"
-          technologies={['n8n', 'Zapier', 'Make', 'Supabase']}
-        />
-        <SkillCard
-          icon={Bot}
-          title="AI Integration"
-          technologies={['LangChain', 'Python', 'AI APIs', 'ChatBots']}
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-6 mt-8">
+        <div className="space-y-2">
+          <div className="text-[#333332] text-lg font-medium">Make</div>
+          <div className="text-[#333332] text-lg font-medium">Supabase</div>
+          <div className="text-[#333332] text-lg font-medium">Bubble</div>
+          <div className="text-[#333332] text-lg font-medium">FlutterFlow</div>
+          <div className="text-[#333332] text-lg font-medium">Webflow</div>
+          <div className="text-[#333332] text-lg font-medium">Framer</div>
+          <div className="text-[#333332] text-lg font-medium">Figma</div>
+        </div>
+        <div className="space-y-2">
+          <div className="text-[#333332] text-lg font-medium">LangChain</div>
+          <div className="text-[#333332] text-lg font-medium">Python</div>
+          <div className="text-[#333332] text-lg font-medium">AI APIs</div>
+          <div className="text-[#333332] text-lg font-medium">ChatBots</div>
+          <div className="text-[#333332] text-lg font-medium">n8n</div>
+          <div className="text-[#333332] text-lg font-medium">Zapier</div>
+        </div>
       </div>
     </div>
   </section>
 );
-
+ 
 const ProjectCard = ({ title, description, technologies, imageUrl }) => (
   <div className="bg-white bg-opacity-50 rounded-lg shadow-md overflow-hidden">
     <img src={imageUrl} alt={title} className="w-full h-48 object-cover" />
     <div className="p-6">
-      <h3 className="text-xl font-medium text-[#333332] mb-2">{title}</h3>
+      <h3 className="text-xl font-medium text-[#333332] mb-3">{title}</h3>
       <p className="text-[#333332] mb-4">{description}</p>
       <div className="flex flex-wrap gap-2">
         {technologies.map((tech, index) => (
@@ -200,15 +198,23 @@ const ProjectCard = ({ title, description, technologies, imageUrl }) => (
 const Projects = () => (
   <section id="projects" className="py-20 bg-[#ded7c7] bg-opacity-50">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-3xl font-extrabold text-[#333332] sm:text-4xl text-center mb-12">
-        Featured Projects
+      <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-left lowercase" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+        <strong>featured projects</strong>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-2 gap-x-6 mt-8 justify-center">
         <ProjectCard
-          title="PropEase"
-          description="Property management software with features for tenant management, maintenance requests, and payment processing."
-          technologies={['Bubble', 'Supabase', 'Stripe', 'flutterflow']}
-          imageUrl="/api/placeholder/400/300"
+          title="Real Estate CRM"
+          description="customers relations management system for real estate professionals to manage their relations."
+          technologies={['Bubble', 'Docuseal', 'vercel', 'figma']}
+          imageUrl={crm}
+          cardColor="#ded7c7"
+        />
+        <ProjectCard
+          title="chatbot"
+          description="Chatbot powered by groqAI."
+          technologies={['Bubble', 'gorq']}
+          imageUrl={chat}
+          cardColor="#ded7c7"
         />
       </div>
     </div>
@@ -336,7 +342,7 @@ const ServiceCard = ({ title, description, features }) => (
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-[#ded7c7] text-white">
-      <Navigation />
+      {/* <Navigation /> */}
       <Hero />
       <Skills />
       <Projects />

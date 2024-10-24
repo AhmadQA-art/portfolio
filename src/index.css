@@ -2,9 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Scrollbar Styles */
+
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* Reduced width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #ded7c7; /* Set background color to #ded7c7 */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.8); /* Color of the scrollbar thumb with some transparency */
+  border-radius: 10px; /* Fully rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(85, 85, 85, 0.8); /* Color of the thumb on hover with some transparency */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin; /* Makes the scrollbar thin */
+  scrollbar-color: rgba(136, 136, 136, 0.8) #ded7c7; /* Thumb color and track color */
+}
+
+/* Hide scrollbar arrows (if they exist) */
+::-webkit-scrollbar-button {
+  display: none; /* Hides the arrows */
+}
+
 body {
   margin: 0;
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
+}
+/* Global lowercase styling */
+body {
+  text-transform: lowercase; /* Makes all text lowercase */
 }
