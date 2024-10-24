@@ -220,7 +220,7 @@ const Projects = () => (
     </div>
   </section>
 );
-
+  
 const ServiceCard = ({ title, description, features }) => (
   <div className="bg-white bg-opacity-50 rounded-lg shadow-md p-6">
     <h3 className="text-xl font-medium text-[#333332] mb-4">{title}</h3>
