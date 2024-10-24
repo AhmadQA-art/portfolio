@@ -91,14 +91,14 @@ import chat from '../assets/chatbot.png';
 
 const Hero = () => (
   <div className="relative overflow-hidden" style={{ backgroundColor: '#ded7c7' }}>
-    <div className="max-w-8xl mx-auto">
+    <div className="max-w-7xl mx-auto">
       <div className="relative z-10 pb-8 min-h-screen flex items-center">
-        <main className="mt-5 mx-auto max-w-7xl px-4 sm:mt-8 sm:px-6 md:mt-12 lg:mt-16 lg:px-8 xl:mt-20 flex items-center justify-between">
-          <div className="sm:text-center lg:text-left">
+        <main className="mt-5 mx-auto px-4 sm:mt-8 sm:px-6 md:mt-12 lg:mt-16 lg:px-8 xl:mt-20 flex items-center justify-between">
+          <div className="sm:text-center lg:text-left mr-40"> {/* Added margin-right */}
             <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl lowercase" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
               <strong>hi, i'm ahmad</strong>
             </h2>
-            <p className="text-lg text-[#333332] tracking-tight font-semibold mt-1 lowercase max-w-xl" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}> {/* Adjusted max width */}
+            <p className="text-lg text-[#333332] tracking-tight font-normal mt-1 lowercase max-w-xl" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}> {/* Changed font-semibold to font-normal */}
               i am a no-code solutions architect{' '}
               <span className="relative inline-flex">
                 <span className="absolute bottom-1 left-0 bg-yellow-400 opacity-80 w-full h-3 -z-10" />
@@ -106,9 +106,9 @@ const Hero = () => (
               </span>
               transforming ideas into powerful software solutions using no-code technologies specializing in web applications, automation, and ai integration.
             </p>
-            <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+            {/* <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-full border border-[#333333] bg-transparent">
-                <a href="#projects" className="w-full flex items-center justify-center px-4 py-2 h-10 text-base font-medium rounded-full text-[#333332] bg-transparent hover:bg-[#333333] hover:bg-opacity-20 md:py-2 md:text-lg md:px-6" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+                <a href="#contact" className="w-full flex items-center justify-center px-4 py-2 h-10 text-base font-medium rounded-full text-[#333332] bg-transparent hover:bg-[#333333] hover:bg-opacity-20 md:py-2 md:text-lg md:px-6" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
                   get in touch
                   <Mail className="h-5 w-5 ml-2" />
                 </a>
@@ -119,7 +119,7 @@ const Hero = () => (
                   <ArrowRight size={24} color="#36322f" strokeWidth={1.75} className="ml-2" />
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="hidden lg:block ml-10">
             <img
@@ -177,9 +177,9 @@ const Skills = () => (
     </div>
   </section>
 );
- 
-const ProjectCard = ({ title, description, technologies, imageUrl }) => (
-  <div className="bg-white bg-opacity-50 rounded-lg shadow-md overflow-hidden">
+
+const ProjectCard = ({ title, description, technologies, imageUrl, link }) => (
+  <a href={link} target="_blank" rel="noopener noreferrer" className="block border border-[#5c5e5d] bg-[#ded7c7] overflow-hidden"> {/* Made the card clickable */}
     <img src={imageUrl} alt={title} className="w-full h-48 object-cover" />
     <div className="p-6">
       <h3 className="text-xl font-medium text-[#333332] mb-3">{title}</h3>
@@ -192,14 +192,14 @@ const ProjectCard = ({ title, description, technologies, imageUrl }) => (
         ))}
       </div>
     </div>
-  </div>
+  </a>
 );
 
 const Projects = () => (
   <section id="projects" className="py-20 bg-[#ded7c7] bg-opacity-50">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-left lowercase" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
-        <strong>featured projects</strong>
+        <strong>projects</strong>
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-2 gap-x-6 mt-8 justify-center">
         <ProjectCard
@@ -207,20 +207,20 @@ const Projects = () => (
           description="customers relations management system for real estate professionals to manage their relations."
           technologies={['Bubble', 'Docuseal', 'vercel', 'figma']}
           imageUrl={crm}
-          cardColor="#ded7c7"
+          link="https://propease-78244.bubbleapps.io/version-test/login" // Replace with the actual link
         />
         <ProjectCard
           title="chatbot"
           description="Chatbot powered by groqAI."
           technologies={['Bubble', 'gorq']}
           imageUrl={chat}
-          cardColor="#ded7c7"
+          link="https://ai-powered-application.bubbleapps.io/version-test" // Replace with the actual link
         />
       </div>
     </div>
   </section>
 );
-  
+
 const ServiceCard = ({ title, description, features }) => (
   <div className="bg-white bg-opacity-50 rounded-lg shadow-md p-6">
     <h3 className="text-xl font-medium text-[#333332] mb-4">{title}</h3>
@@ -278,66 +278,38 @@ const ServiceCard = ({ title, description, features }) => (
 //   </section>
 // );
 
-// const Contact = () => (
-//   <section id="contact" className="py-20 bg-[#ded7c7] bg-opacity-50">
-//     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//       <h2 className="text-3xl font-extrabold text-[#333332] sm:text-4xl text-center mb-12">
-//         Get In Touch
-//       </h2>
-//       <div className="max-w-lg mx-auto">
-//         <div className="flex justify-center space-x-6 mb-8">
-//           <a href="mailto:your.email@example.com" className="text-[#333332] hover:text-[#333332]">
-//             <Mail className="h-6 w-6" />
-//           </a>
-//           <a href="https://linkedin.com/in/yourprofile" className="text-[#333332] hover:text-[#333332]">
-//             <Linkedin className="h-6 w-6" />
-//           </a>
-//           <a href="https://github.com/yourprofile" className="text-[#333332] hover:text-[#333332]">
-//             <Github className="h-6 w-6" />
-//           </a>
-//         </div>
-//         <form className="space-y-6">
-//           <div>
-//             <label htmlFor="name" className="block text-sm font-medium text-[#333332]">
-//               Name
-//             </label>
-//             <input
-//               type="text"
-//               id="name"
-//               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-//             />
-//           </div>
-//           <div>
-//             <label htmlFor="email" className="block text-sm font-medium text-[#333332]">
-//               Email
-//             </label>
-//             <input
-//               type="email"
-//               id="email"
-//               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-//             />
-//           </div>
-//           <div>
-//             <label htmlFor="message" className="block text-sm font-medium text-[#333332]">
-//               Message
-//             </label>
-//             <textarea
-//               id="message"
-//               rows={4}
-//               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-//             />
-//           </div>
-//           <button
-//             type="submit"
-//             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-[#333332] bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-//           >
-//             Send Message
-//           </button>
-//         </form>
-//       </div>
-//     </div>
-//   </section>
-// );
+const Contact = () => (
+  <section id="contact" className="py-20 bg-[#ded7c7] bg-opacity-50">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-left lowercase" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+        <strong>Get In Touch</strong>
+      </h2>
+      <div className="flex justify-start items-start space-x-20"> {/* Flex container for text and icons/button */}
+        <div className="flex flex-col text-left"> {/* Column layout for text */}
+          <p className="text-lg text-[#333332]">Phone: +201151359701</p>
+          <p className="text-lg text-[#333332]">Phone: +20128261764</p>
+          <p className="text-lg text-[#333332]">Email: <a href="mailto:ahmadmesbahqa@gmail.com" className="text-[#333332] hover:underline">ahmadmesbahqa@gmail.com</a></p>
+        </div>
+        <div className="flex flex-col items-center space-y-6"> {/* Column layout for icons and button */}
+          <div className="flex space-x-4"> {/* Space between icons */}
+            <a href="mailto:ahmadmesbahqa@gmail.com" className="text-[#333332] hover:text-[#333332]">
+              <Mail className="h-6 w-6" />
+            </a>
+            <a href="https://www.linkedin.com/in/ahmad-mohamed-8ba9a131a/" className="text-[#333332] hover:text-[#333332]">
+              <Linkedin className="h-6 w-6" />
+            </a>
+            <a href="https://github.com/AhmadQA-art" className="text-[#333332] hover:text-[#333332]">
+              <Github className="h-6 w-6" />
+            </a>
+          </div>
+          <a href="https://calendly.com/ahmadmesbahqa/let-s-have-a-chat?month=2024-10" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center px-4 py-2 h-10 text-base font-medium rounded-full text-[#333332] border border-[#333333] bg-transparent hover:bg-[#333333] hover:bg-opacity-20 md:py-2 md:text-lg md:px-6">
+            Let's Meet
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 export default function Portfolio() {
   return (
@@ -347,7 +319,7 @@ export default function Portfolio() {
       <Skills />
       <Projects />
       {/* <Services /> */}
-      {/* <Contact /> */}
+      <Contact />
     </div>
   );
 }
