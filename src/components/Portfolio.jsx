@@ -287,7 +287,7 @@ const Contact = () => (
       <div className="flex justify-start items-start space-x-20"> {/* Flex container for text and icons/button */}
         <div className="flex flex-col text-left"> {/* Column layout for text */}
           <p className="text-lg text-[#333332]">Phone: +201151359701</p>
-          <p className="text-lg text-[#333332]">Phone: +20128261764</p>
+          <p className="text-lg text-[#333332]">Whatsapp: +201282617564</p>
           <p className="text-lg text-[#333332]">Email: <a href="mailto:ahmadmesbahqa@gmail.com" className="text-[#333332] hover:underline">ahmadmesbahqa@gmail.com</a></p>
         </div>
         <div className="flex flex-col items-center space-y-6"> {/* Column layout for icons and button */}
