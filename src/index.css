@@ -42,5 +42,5 @@ body {
 }
 /* Global lowercase styling */
 body {
-  text-transform: lowercase; /* Makes all text lowercase */
+  /* text-transform: lowercase; Makes all text lowercase */
 }
