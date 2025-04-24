@@ -17,16 +17,16 @@ import SideNavigation from './SideNavigation';
 const Hero = () => (
   <div id="hero" className="relative overflow-hidden" style={{ backgroundColor: '#ded7c7' }}>
     <div className="max-w-7xl mx-auto">
-      <div className="relative z-10 pb-8 min-h-screen flex items-center">
-        <main className="flex items-center justify-start min-h-[400px] h-[80vh] px-4 sm:px-6 lg:px-8"> 
-          <div className="lg:text-left mr-20 ml-0"> 
-            <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+      <div className="relative z-10 pb-8 min-h-screen flex flex-col md:flex-row items-center md:items-start">
+        <main className="flex flex-col md:flex-row items-center justify-start min-h-[400px] h-auto md:h-[80vh] px-4 sm:px-6 lg:px-8 w-full"> 
+          <div className="w-full md:w-auto lg:text-left mr-0 md:mr-20 ml-0 mt-8 md:mt-0"> 
+            <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-center md:text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
               <strong>Hi, I'm Ahmad</strong>
             </h2>
-            <p className="text-lg text-[#333332] tracking-tight font-normal mt-1 max-w-xl" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+            <p className="text-base sm:text-lg text-[#333332] tracking-tight font-normal mt-1 max-w-xl mx-auto md:mx-0 text-center md:text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
               I'm a Full-stack Solutions Architect who transforms ideas into powerful web applications, automation tools, and AI-driven solutions. I utilize a mix of Low-code and Coding technologies to build modern software that drives efficiency and innovation.
             </p>
-            <div className="mt-6 flex gap-4">
+            <div className="mt-6 flex flex-col sm:flex-row gap-4 items-center md:items-start justify-center md:justify-start">
               <a
                 href="https://cal.com/ahmad-mesbahqa-sstmcl/30min"
                 target="_blank"
@@ -37,12 +37,12 @@ const Hero = () => (
               </a>
             </div>
           </div>
-          <div className="hidden lg:block ml-6"> 
+          <div className="w-full flex justify-center md:justify-start md:w-auto hidden lg:block ml-0 md:ml-6 mt-8 md:mt-0"> 
             <img
               src={profileImage}
               alt="Profile"
-              className="w-150 object-cover rounded-lg"
-              style={{ height: '450px' }}
+              className="w-40 h-40 md:w-48 md:h-[450px] object-cover rounded-lg mx-auto"
+              style={{ maxWidth: '100%', height: 'auto', maxHeight: '450px' }}
             />
           </div>
         </main>
@@ -110,10 +110,10 @@ const ProjectCard = ({ title, description, technologies, images, link }) => {
   const goTo = idx => setCurrent(idx);
 
   return (
-    <div className="border border-[#5c5e5d] bg-[#ded7c7] overflow-hidden group relative transition-shadow duration-300 hover:shadow-lg">
+    <div className="border border-[#5c5e5d] bg-[#ded7c7] overflow-hidden group relative transition-shadow duration-300 hover:shadow-lg rounded-xl w-full max-w-md mx-auto">
       {hasImages && (
-        <div className="relative w-full h-48">
-          <img src={images[current]} alt={title} className="w-full h-48 object-cover transition-all duration-300" />
+        <div className="relative w-full h-40 sm:h-48 flex items-center justify-center">
+          <img src={images[current]} alt={title} className="w-full h-40 sm:h-48 object-cover transition-all duration-300 rounded-t-xl" />
           {/* Navigation Dots - only show if more than one image */}
           {images.length > 1 && (
             <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
@@ -130,12 +130,12 @@ const ProjectCard = ({ title, description, technologies, images, link }) => {
           )}
         </div>
       )}
-      <div className="p-6">
-        <h3 className="text-xl font-medium text-[#333332] mb-3">{title}</h3>
-        <p className="text-[#333332] mb-4">{description}</p>
+      <div className="p-4 sm:p-6">
+        <h3 className="text-lg sm:text-xl font-medium text-[#333332] mb-2 sm:mb-3">{title}</h3>
+        <p className="text-[#333332] mb-3 sm:mb-4 text-sm sm:text-base">{description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech, index) => (
-            <span key={index} className="px-4 py-2 text-[#333332] border border-[#333333] bg-transparent hover:bg-[#333333] hover:bg-opacity-20 rounded-full text-sm">
+            <span key={index} className="px-3 py-1 sm:px-4 sm:py-2 text-[#333332] border border-[#333333] bg-transparent hover:bg-[#333333] hover:bg-opacity-20 rounded-full text-xs sm:text-sm">
               {tech}
             </span>
           ))}
@@ -157,11 +157,11 @@ const ProjectCard = ({ title, description, technologies, images, link }) => {
 
 const Projects = () => (
   <section id="projects" className="py-20 bg-[#ded7c7] bg-opacity-50">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
       <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
         <strong>Projects</strong>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-2 gap-x-6 mt-8 justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-6 mt-8 justify-center">
         <ProjectCard
           title="Real Estate CRM"
           description="customers relations management system for real estate professionals to manage their relations."
@@ -244,14 +244,14 @@ const Contact = () => (
       <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
         <strong>Get In Touch</strong>
       </h2>
-      <div className="flex justify-start items-start space-x-20"> {/* Flex container for text and icons/button */}
-        <div className="flex flex-col text-left"> {/* Column layout for text */}
+      <div className="flex flex-col sm:flex-row justify-start items-start space-x-20"> 
+        <div className="flex flex-col text-left"> 
           <p className="text-lg text-[#333332]">Phone: +201151359701</p>
           <p className="text-lg text-[#333332]">Whatsapp: +201282617564</p>
           <p className="text-lg text-[#333332]">Email: <a href="mailto:ahmadmesbahqa@gmail.com" className="text-[#333332] hover:underline">ahmadmesbahqa@gmail.com</a></p>
         </div>
-        <div className="flex flex-col items-center space-y-6"> {/* Column layout for icons and button */}
-          <div className="flex space-x-4"> {/* Space between icons */}
+        <div className="flex flex-col items-center space-y-6"> 
+          <div className="flex space-x-4"> 
             <a href="mailto:ahmadmesbahqa@gmail.com" target="_blank" rel="noopener noreferrer" className="text-[#333332] hover:text-[#333332]">
               <Mail className="h-6 w-6" />
             </a>

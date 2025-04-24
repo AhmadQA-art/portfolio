@@ -11,7 +11,7 @@ const navLinks = [
 
 export default function SideNavigation() {
   return (
-    <nav className="fixed top-0 left-0 h-full w-48 bg-[#ded7c7] bg-opacity-80 shadow-lg flex flex-col items-center py-12 z-50">
+    <nav className="fixed top-0 left-0 h-full w-48 bg-[#ded7c7] bg-opacity-80 shadow-lg flex-col items-center py-12 z-50 hidden sm:flex">
       <div className="flex-1 w-full flex flex-col items-center space-y-8">
         {navLinks.map(link => (
           <a
