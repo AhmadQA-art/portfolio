@@ -1,8 +1,9 @@
 import React from 'react';
 import { Mail, Linkedin, Github, Code, ShoppingCart, Bot, Zap } from 'lucide-react';
 import profileImage from '../assets/profile2.jpeg';
-import crm from '../assets/crm1.png';
 import chat from '../assets/chatbot.png';
+import saasLandingPage from '../assets/Saas_landing_page.png';
+import ecommerceWebsite from '../assets/Ecommerce_website.png';
 import propEase1 from '../assets/propease project/Dashboard.png';
 import propEase2 from '../assets/propease project/Leases.png';
 import propEase3 from '../assets/propease project/People-teams-view.png';
@@ -17,9 +18,9 @@ import SideNavigation from './SideNavigation';
 const Hero = () => (
   <div id="hero" className="relative overflow-hidden" style={{ backgroundColor: '#ded7c7' }}>
     <div className="max-w-7xl mx-auto">
-      <div className="relative z-10 pb-8 min-h-screen flex flex-col md:flex-row items-center md:items-start">
-        <main className="flex flex-col md:flex-row items-center justify-start min-h-[400px] h-auto md:h-[80vh] px-4 sm:px-6 lg:px-8 w-full"> 
-          <div className="w-full md:w-auto lg:text-left mr-0 md:mr-20 ml-0 mt-8 md:mt-0"> 
+      <div className="relative z-10 pb-8 min-h-screen flex flex-col md:flex-row items-center">
+        <main className="flex flex-col md:flex-row items-center justify-between min-h-[400px] h-auto md:h-[80vh] px-4 sm:px-6 lg:px-8 w-full"> 
+          <div className="w-full md:w-1/2 lg:text-left mr-0 md:mr-8 ml-0 mt-8 md:mt-0"> 
             <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-center md:text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
               <strong>Hi, I'm Ahmad</strong>
             </h2>
@@ -37,12 +38,18 @@ const Hero = () => (
               </a>
             </div>
           </div>
-          <div className="w-full flex justify-center md:justify-start md:w-auto hidden lg:block ml-0 md:ml-6 mt-8 md:mt-0"> 
+          <div className="w-full md:w-1/2 flex items-center justify-center block mt-8 md:mt-0"> 
             <img
               src={profileImage}
               alt="Profile"
-              className="w-40 h-40 md:w-48 md:h-[450px] object-cover rounded-lg mx-auto"
-              style={{ maxWidth: '100%', height: 'auto', maxHeight: '450px' }}
+              className="rounded-lg"
+              style={{ 
+                width: 'auto', 
+                height: 'auto', 
+                maxHeight: '450px',
+                objectFit: 'contain',
+                objectPosition: 'center'
+              }}
             />
           </div>
         </main>
@@ -132,10 +139,10 @@ const ProjectCard = ({ title, description, technologies, images, link }) => {
       )}
       <div className="p-4 sm:p-6">
         <h3 className="text-lg sm:text-xl font-medium text-[#333332] mb-2 sm:mb-3">{title}</h3>
-        <p className="text-[#333332] mb-3 sm:mb-4 text-sm sm:text-base">{description}</p>
+        <p className="text-[#333332] text-opacity-80 mb-3 sm:mb-4 text-sm leading-snug font-normal">{description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech, index) => (
-            <span key={index} className="px-3 py-1 sm:px-4 sm:py-2 text-[#333332] border border-[#333333] bg-transparent hover:bg-[#333333] hover:bg-opacity-20 rounded-full text-xs sm:text-sm">
+            <span key={index} className="px-3 py-1 text-[#333332] border border-[#333333] bg-transparent hover:bg-[#333333] hover:bg-opacity-10 rounded-full text-xs">
               {tech}
             </span>
           ))}
@@ -145,7 +152,7 @@ const ProjectCard = ({ title, description, technologies, images, link }) => {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block mt-2 px-0 py-0 text-[#333332] underline underline-offset-2 text-sm font-semibold hover:text-[#1a1a1a] transition"
+            className="inline-block mt-2 px-0 py-0 text-[#333332] font-medium text-sm hover:text-[#1a1a1a] transition"
           >
             Visit Website
           </a>
@@ -163,16 +170,23 @@ const Projects = () => (
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-6 mt-8 justify-center">
         <ProjectCard
-          title="Real Estate CRM"
-          description="customers relations management system for real estate professionals to manage their relations."
-          technologies={['Bubble', 'Docuseal', 'vercel', 'figma']}
-          images={[crm]}
-          link="https://propease-78244.bubbleapps.io/version-test/login" // Replace with the actual link
+          title="Landing page"
+          description="Modern Saas Landing page for Startup"
+          technologies={['tailwind css', 'React', 'vite', 'AWS Amplify']}
+          images={[saasLandingPage]}
+          link="https://main.d2sn0t6gzldyb3.amplifyapp.com/"
+        />
+        <ProjectCard
+          title="Cowboy"
+          description="Ecommerce website"
+          technologies={['React Router', 'TailwindCSS', 'Redux', 'Vite', 'React', 'D3.js', 'Recharts', 'Jest', 'Framer Motion', 'React Hook Form', 'Node.js', 'axios', 'lucide-react', 'Netlify']}
+          images={[ecommerceWebsite]}
+          link="https://cowbike.netlify.app/"
         />
         <ProjectCard
           title="propEase"
           description="Cloud based Property management SaaS solution"
-          technologies={['React.js', 'Vite.js', 'Node.js', 'Express.js', 'Supabase', 'PostgreSQL', 'Aws Amplify', 'AWS Elastic Beanstalk', 'Infobip', "API’s"]}
+          technologies={['React.js', 'Vite.js', 'Node.js', 'Express.js', 'Supabase', 'PostgreSQL', 'Aws Amplify', 'AWS Elastic Beanstalk', 'Infobip', "API's"]}
           images={[propEase1, propEase2, propEase3, propEase4, propEase5, propEase6, propEase7, propEase8, propEase9]}
           link="https://main.d2sn0t6gzldyb3.amplifyapp.com/"
         />
@@ -181,7 +195,7 @@ const Projects = () => (
           description="Chatbot powered by groqAI."
           technologies={['Bubble', 'groq']}
           images={[chat]}
-          link="https://ai-powered-application.bubbleapps.io/version-test" // Replace with the actual link
+          link="https://ai-powered-application.bubbleapps.io/version-test"
         />
       </div>
     </div>
