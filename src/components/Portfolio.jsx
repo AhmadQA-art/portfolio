@@ -25,7 +25,7 @@ const Hero = () => (
               <strong>Hi, I'm Ahmad</strong>
             </h2>
             <p className="text-base sm:text-lg text-[#333332] tracking-tight font-normal mt-1 max-w-xl mx-auto md:mx-0 text-center md:text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
-              I'm a Full-stack Solutions Architect who transforms ideas into powerful web applications, automation tools, and AI-driven solutions. I utilize a mix of Low-code and Coding technologies to build modern software that drives efficiency and innovation.
+              I'm a Full-stack Developer and Solutions Architect who transforms ideas into powerful web applications, automation tools, and AI-driven solutions. I utilize a mix of Low-code and Coding technologies to build modern software that drives efficiency and innovation.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-4 items-center md:items-start justify-center md:justify-start">
               <a
