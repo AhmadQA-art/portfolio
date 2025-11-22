@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Mail, Linkedin, Github, Code, ShoppingCart, Bot, Zap } from 'lucide-react';
 import profileImage from '../assets/profile2.jpeg';
 import chat from '../assets/chatbot.png';
@@ -13,39 +13,56 @@ import propEase6 from '../assets/propease project/communications.png';
 import propEase7 from '../assets/propease project/finances-overview.png';
 import propEase8 from '../assets/propease project/finances-reports generation.png';
 import propEase9 from '../assets/propease project/maintenance.png';
+import agridustria1 from '../assets/agridustria_data/1.png';
+import agridustria2 from '../assets/agridustria_data/2.png';
+import agridustria3 from '../assets/agridustria_data/3.png';
+import agridustria4 from '../assets/agridustria_data/4.png';
+import agridustria5 from '../assets/agridustria_data/5.png';
+import agridustria6 from '../assets/agridustria_data/6.png';
+import agridustria7 from '../assets/agridustria_data/7.png';
+import agridustria8 from '../assets/agridustria_data/8.png';
+import agridustria9 from '../assets/agridustria_data/9.png';
+import agridustria10 from '../assets/agridustria_data/10.png';
+import agridustria11 from '../assets/agridustria_data/11.png';
+import mainLandingPage from '../assets/agridustria_data/main_landing_page.png';
 import SideNavigation from './SideNavigation';
+import ImageViewer from './ImageViewer';
+import CollapsibleSection from './CollapsibleSection';
 
 const Hero = () => (
   <div id="hero" className="relative overflow-hidden" style={{ backgroundColor: '#ded7c7' }}>
     <div className="max-w-7xl mx-auto">
       <div className="relative z-10 pb-8 min-h-screen flex flex-col md:flex-row items-center">
-        <main className="flex flex-col md:flex-row items-center justify-between min-h-[400px] h-auto md:h-[80vh] px-4 sm:px-6 lg:px-8 w-full"> 
-          <div className="w-full md:w-1/2 lg:text-left mr-0 md:mr-8 ml-0 mt-8 md:mt-0"> 
+        <main className="flex flex-col md:flex-row items-center justify-between min-h-[400px] h-auto md:h-[80vh] px-4 sm:px-6 lg:px-8 w-full">
+          <div className="w-full md:w-1/2 lg:text-left mr-0 md:mr-8 ml-0 mt-8 md:mt-0">
             <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-center md:text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
               <strong>Hi, I'm Ahmad</strong>
             </h2>
+            <h3 className="mb-3 text-lg font-medium text-[#333332] sm:text-xl md:text-2xl text-center md:text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+              Full-Stack Developer & Solutions Architect
+            </h3>
             <p className="text-base sm:text-lg text-[#333332] tracking-tight font-normal mt-1 max-w-xl mx-auto md:mx-0 text-center md:text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
-              I'm a Full-stack Developer and Solutions Architect who transforms ideas into powerful web applications, automation tools, and AI-driven solutions. I utilize a mix of Low-code and Coding technologies to build modern software that drives efficiency and innovation.
+              I engineer scalable web applications and intelligent automation systems. I combine robust coding with rapid development strategies to build modern software that solves complex business problems and accelerates growth.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-4 items-center md:items-start justify-center md:justify-start">
               <a
-                href="https://cal.com/ahmad-mesbahqa-sstmcl/30min"
+                href="https://cal.com/ahmad-mesbah-sstmcl/secret"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-5 py-2 bg-[#333332] text-[#ded7c7] rounded-full text-sm font-semibold shadow hover:bg-[#222] transition"
               >
-                Let's Chat
+                Let's Build Together
               </a>
             </div>
           </div>
-          <div className="w-full md:w-1/2 flex items-center justify-center block mt-8 md:mt-0"> 
+          <div className="w-full md:w-1/2 flex items-center justify-center block mt-8 md:mt-0">
             <img
               src={profileImage}
               alt="Profile"
               className="rounded-lg"
-              style={{ 
-                width: 'auto', 
-                height: 'auto', 
+              style={{
+                width: 'auto',
+                height: 'auto',
                 maxHeight: '450px',
                 objectFit: 'contain',
                 objectPosition: 'center'
@@ -58,169 +75,236 @@ const Hero = () => (
   </div>
 );
 
-const SkillCard = ({ icon: Icon, title, technologies }) => (
-  <div className="bg-[#ded7c7] bg-opacity-50 p-6 rounded-lg shadow-md">
-    <div className="flex items-center mb-4">
-      <Icon className="h-6 w-6 text-blue-600 mr-2" />
-      <h3 className="text-lg font-medium text-[#333332]">{title}</h3>
-    </div>
-    <ul className="space-y-2">
-      {technologies.map((tech, index) => (
-        <li key={index} className="text-[#333332]">{tech}</li>
-      ))}
-    </ul>
-  </div>
-);
-
 const Skills = () => (
   <section id="skills" className="py-20 bg-[#ded7c7] bg-opacity-50">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
         <strong>Skills & Technologies</strong>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-2 gap-x-6 mt-8">
-        <div className="space-y-2">
-          <div className="text-[#333332] text-lg font-medium">HTML/CSS/JavaScript</div>
-          <div className="text-[#333332] text-lg font-medium">Git/Github</div>
-          <div className="text-[#333332] text-lg font-medium">Python</div>
-          <div className="text-[#333332] text-lg font-medium">Bubble.io</div>
-          <div className="text-[#333332] text-lg font-medium">FlutterFlow</div>
-          <div className="text-[#333332] text-lg font-medium">Node.js/Express.js</div>
-          <div className="text-[#333332] text-lg font-medium">CI/CD</div>
-          <div className="text-[#333332] text-lg font-medium">AWS services</div>
-          <div className="text-[#333332] text-lg font-medium">Supabase</div>
-          <div className="text-[#333332] text-lg font-medium">Webflow</div>
-          <div className="text-[#333332] text-lg font-medium">UI/UX Design</div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-6 mt-8">
+        <div>
+          <h3 className="text-xl font-medium text-[#333332] mb-3">Frontend</h3>
+          <div className="space-y-2">
+            <div className="text-[#333332] text-lg font-normal">React.js</div>
+            <div className="text-[#333332] text-lg font-normal">TypeScript</div>
+            <div className="text-[#333332] text-lg font-normal">TailwindCSS</div>
+            <div className="text-[#333332] text-lg font-normal">Framer Motion</div>
+            <div className="text-[#333332] text-lg font-normal">FlutterFlow</div>
+            <div className="text-[#333332] text-lg font-normal">Webflow</div>
+            <div className="text-[#333332] text-lg font-normal">HTML/CSS</div>
+          </div>
         </div>
-        <div className="space-y-2">
-          <div className="text-[#333332] text-lg font-medium">Figma</div>
-          <div className="text-[#333332] text-lg font-medium">Microsoft Azure</div>
-          <div className="text-[#333332] text-lg font-medium">Asana</div>
-          <div className="text-[#333332] text-lg font-medium">PostgreSQL</div>
-          <div className="text-[#333332] text-lg font-medium">React.js</div>
-          <div className="text-[#333332] text-lg font-medium">Vite.js</div>
-          <div className="text-[#333332] text-lg font-medium">Typescript</div>
-          <div className="text-[#333332] text-lg font-medium">API's</div>
-          <div className="text-[#333332] text-lg font-medium">n8n</div>
-          <div className="text-[#333332] text-lg font-medium">Framer</div>
-          <div className="text-[#333332] text-lg font-medium">langchain</div>
-          <div className="text-[#333332] text-lg font-medium">Python</div>
+        <div>
+          <h3 className="text-xl font-medium text-[#333332] mb-3">Backend & Cloud</h3>
+          <div className="space-y-2">
+            <div className="text-[#333332] text-lg font-normal">Node.js</div>
+            <div className="text-[#333332] text-lg font-normal">Express.js</div>
+            <div className="text-[#333332] text-lg font-normal">Python</div>
+            <div className="text-[#333332] text-lg font-normal">PostgreSQL</div>
+            <div className="text-[#333332] text-lg font-normal">Supabase</div>
+            <div className="text-[#333332] text-lg font-normal">AWS</div>
+            <div className="text-[#333332] text-lg font-normal">Azure</div>
+          </div>
+        </div>
+        <div>
+          <h3 className="text-xl font-medium text-[#333332] mb-3">AI & Automation</h3>
+          <div className="space-y-2">
+            <div className="text-[#333332] text-lg font-normal">n8n</div>
+            <div className="text-[#333332] text-lg font-normal">LangChain</div>
+            <div className="text-[#333332] text-lg font-normal">OpenAI API</div>
+            <div className="text-[#333332] text-lg font-normal">Bubble.io</div>
+          </div>
+        </div>
+        <div>
+          <h3 className="text-xl font-medium text-[#333332] mb-3">Tools & DevOps</h3>
+          <div className="space-y-2">
+            <div className="text-[#333332] text-lg font-normal">Git/GitHub</div>
+            <div className="text-[#333332] text-lg font-normal">Docker</div>
+            <div className="text-[#333332] text-lg font-normal">CI/CD</div>
+            <div className="text-[#333332] text-lg font-normal">Figma</div>
+            <div className="text-[#333332] text-lg font-normal">Asana</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 );
 
-const ProjectCard = ({ title, description, technologies, images, link }) => {
-  const [current, setCurrent] = React.useState(0);
+const ProjectCard = ({ title, platform, description, keyHighlights, technologies, images, onViewProject }) => {
   const hasImages = images && images.length > 0;
-  const goTo = idx => setCurrent(idx);
 
   return (
     <div className="border border-[#5c5e5d] bg-[#ded7c7] overflow-hidden group relative transition-shadow duration-300 hover:shadow-lg rounded-xl w-full max-w-md mx-auto">
       {hasImages && (
         <div className="relative w-full h-40 sm:h-48 flex items-center justify-center">
-          <img src={images[current]} alt={title} className="w-full h-40 sm:h-48 object-cover transition-all duration-300 rounded-t-xl" />
-          {/* Navigation Dots - only show if more than one image */}
-          {images.length > 1 && (
-            <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
-              {images.map((_, idx) => (
-                <button
-                  key={idx}
-                  className={`w-2.5 h-2.5 rounded-full ${current === idx ? 'bg-[#333332]' : 'bg-[#ded7c7] border border-[#333332]'} transition`}
-                  style={{ outline: 'none' }}
-                  onClick={e => { e.preventDefault(); goTo(idx); }}
-                  aria-label={`Show image ${idx + 1}`}
-                />
-              ))}
-            </div>
-          )}
+          <img src={images[0]} alt={title} className="w-full h-40 sm:h-48 object-cover transition-all duration-300 rounded-t-xl" />
+          <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+            <button
+              onClick={() => onViewProject(images)}
+              className="px-4 py-2 bg-white text-black rounded-full"
+            >
+              View Project
+            </button>
+          </div>
         </div>
       )}
       <div className="p-4 sm:p-6">
         <h3 className="text-lg sm:text-xl font-medium text-[#333332] mb-2 sm:mb-3">{title}</h3>
-        <p className="text-[#333332] text-opacity-80 mb-3 sm:mb-4 text-sm leading-snug font-normal">{description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {technologies.map((tech, index) => (
-            <span key={index} className="px-3 py-1 text-[#333332] border border-[#333333] bg-transparent hover:bg-[#333333] hover:bg-opacity-10 rounded-full text-xs">
-              {tech}
-            </span>
-          ))}
-        </div>
-        {link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block mt-2 px-0 py-0 text-[#333332] font-medium text-sm hover:text-[#1a1a1a] transition"
-          >
-            Visit Website
-          </a>
+        {platform && (
+          <div className="mb-3">
+            <h4 className="text-sm font-medium text-[#333332] mb-1">Platforms</h4>
+            <div className="flex flex-wrap gap-2 justify-start">
+              {platform.map((p, i) => (
+                <span key={i} className="px-2 py-1 text-xs text-white bg-[#333333] rounded-full">{p}</span>
+              ))}
+            </div>
+          </div>
+        )}
+        {description && (
+          <CollapsibleSection title="Description" hasMore={description.length > 100} inline>
+            {(isExpanded, toggleExpansion) => (
+              <p className="text-[#333332] text-opacity-80 text-sm leading-snug font-normal">
+                {isExpanded ? description : (
+                  <>
+                    {`${description.substring(0, 100)}...`}
+                    <button onClick={toggleExpansion} className="text-xs text-[#333332] hover:underline focus:outline-none ml-1">
+                      Show More
+                    </button>
+                  </>
+                )}
+              </p>
+            )}
+          </CollapsibleSection>
+        )}
+        {keyHighlights && keyHighlights.length > 0 && (
+          <CollapsibleSection title="Key Highlights" hasMore={keyHighlights.length > 1} inline>
+            {(isExpanded, toggleExpansion) => (
+              <ul className="list-disc list-inside text-[#333332] text-opacity-80 text-sm leading-snug">
+                {(isExpanded ? keyHighlights : keyHighlights.slice(0, 1)).map((highlight, index) => (
+                  <li key={index}>
+                    {highlight}
+                    {!isExpanded && index === 0 && (
+                      <button onClick={toggleExpansion} className="text-xs text-[#333332] hover:underline focus:outline-none ml-1">
+                        ...Show More
+                      </button>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </CollapsibleSection>
+        )}
+        {technologies && technologies.length > 0 && (
+          <CollapsibleSection title="Tech Stack" hasMore={technologies.length > 5}>
+            {(isExpanded) => (
+              <div className="flex flex-wrap gap-2">
+                {(isExpanded ? technologies : technologies.slice(0, 5)).map((tech, index) => (
+                  <span key={index} className="px-3 py-1 text-[#333332] border border-[#333333] bg-transparent hover:bg-[#333333] hover:bg-opacity-10 rounded-full text-xs">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
+          </CollapsibleSection>
         )}
       </div>
     </div>
   );
 };
 
-const Projects = () => (
-  <section id="projects" className="py-20 bg-[#ded7c7] bg-opacity-50">
-    <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-      <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
-        <strong>Projects</strong>
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-6 mt-8 justify-center">
-        <ProjectCard
-          title="Landing page"
-          description="Modern Saas Landing page for Startup"
-          technologies={['tailwind css', 'React', 'vite', 'AWS Amplify']}
-          images={[saasLandingPage]}
-          link="https://main.d2sn0t6gzldyb3.amplifyapp.com/"
-        />
-        <ProjectCard
-          title="Cowboy"
-          description="Ecommerce website"
-          technologies={['React Router', 'TailwindCSS', 'Redux', 'Vite', 'React', 'D3.js', 'Recharts', 'Jest', 'Framer Motion', 'React Hook Form', 'Node.js', 'axios', 'lucide-react', 'Netlify']}
-          images={[ecommerceWebsite]}
-          link="https://cowbike.netlify.app/"
-        />
-        <ProjectCard
-          title="propEase"
-          description="Cloud based Property management SaaS solution"
-          technologies={['React.js', 'Vite.js', 'Node.js', 'Express.js', 'Supabase', 'PostgreSQL', 'Aws Amplify', 'AWS Elastic Beanstalk', 'Infobip', "API's"]}
-          images={[propEase1, propEase2, propEase3, propEase4, propEase5, propEase6, propEase7, propEase8, propEase9]}
-          link="https://main.d2sn0t6gzldyb3.amplifyapp.com/"
-        />
-        <ProjectCard
-          title="chatbot"
-          description="Chatbot powered by groqAI."
-          technologies={['Bubble', 'groq']}
-          images={[chat]}
-          link="https://ai-powered-application.bubbleapps.io/version-test"
-        />
+const Projects = () => {
+  const [viewerOpen, setViewerOpen] = useState(false);
+  const [selectedImages, setSelectedImages] = useState([]);
+
+  const handleViewProject = (images) => {
+    setSelectedImages(images);
+    setViewerOpen(true);
+  };
+
+  const handleCloseViewer = () => {
+    setViewerOpen(false);
+    setSelectedImages([]);
+  };
+
+  return (
+    <section id="projects" className="py-20 bg-[#ded7c7] bg-opacity-50">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+        <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+          <strong>Projects</strong>
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-6 mt-8 justify-center">
+          <ProjectCard
+            title="AgriDustria"
+            platform={['Web App', 'Mobile App']}
+            description="Connects agricultural operators with experts for real-time diagnosis via secure chat and file sharing, featuring full Arabic/RTL localization for the MENA market."
+            keyHighlights={[
+              'Engineered full RTL & Arabic language support.',
+              'Enabled real-time remote diagnosis system.',
+              'Built admin portal for strict expert vetting.',
+            ]}
+            technologies={['React', 'Node.js', 'PostgreSQL', 'AWS', 'Socket.io']}
+            images={[mainLandingPage, agridustria1, agridustria2, agridustria3, agridustria4, agridustria5, agridustria6, agridustria7, agridustria8, agridustria9, agridustria10, agridustria11]}
+            onViewProject={handleViewProject}
+          />
+          <ProjectCard
+            title="PropEase"
+            platform={['SaaS Web Application']}
+            description="Streamlines property operations by unifying leases, maintenance, and finance into one dashboard, replacing fragmented tools to reduce administrative overhead."
+            keyHighlights={[
+              'Unified asset, user, and lease management.',
+              'Automated WhatsApp and SMS notifications.',
+              'Integrated native accounting and expense tracking.',
+            ]}
+            technologies={['React', 'TailwindCSS', 'Node.js', 'Supabase', 'AWS Amplify', 'Infobip']}
+            images={[saasLandingPage, propEase1, propEase2, propEase3, propEase4, propEase5, propEase6, propEase7, propEase8, propEase9]}
+            onViewProject={handleViewProject}
+          />
+          <ProjectCard
+            title="Cowboy"
+            platform={['E-Commerce Website']}
+            description="A high-fidelity e-commerce interface optimized for speed and conversion, featuring interactive product visualization and a seamless checkout flow."
+            keyHighlights={[
+              'Optimized user flow for higher conversion rates.',
+              'Developed dynamic, SEO-driven blog system.',
+              'Engineered high-performance, responsive UI.',
+            ]}
+            technologies={['React', 'Redux', 'TailwindCSS', 'Framer Motion', 'Node.js', 'Netlify']}
+            images={[ecommerceWebsite]}
+            onViewProject={handleViewProject}
+          />
+          {/* <ProjectCard
+            title="chatbot"
+            description="Chatbot powered by groqAI."
+            technologies={['Bubble', 'groq']}
+            images={[chat]}
+            onViewProject={handleViewProject}
+          /> */}
+        </div>
       </div>
-    </div>
-  </section>
-);
+      {viewerOpen && <ImageViewer images={selectedImages} onClose={handleCloseViewer} />}
+    </section>
+  );
+};
 
 const services = [
   {
     title: "MVP Development",
-    description: "Rapidly build and launch your Minimum Viable Product to validate your idea and attract early users.",
+    description: "Rapid MVP Launch – Turn your concept into a market-ready product in weeks, not months, to validate ideas and attract early investors.",
     icon: Code,
   },
   {
     title: "Shopify Development",
-    description: "Professional Shopify store setup, customization, and integration for your e-commerce business.",
+    description: "E-Commerce Solutions – Custom Shopify setup and integration designed to optimize the customer journey and increase sales.",
     icon: ShoppingCart,
   },
   {
     title: "AI App Development",
-    description: "Integrate AI features into your apps, including chatbots, recommendation engines, and more.",
+    description: "AI & Intelligent Apps – Integrate custom chatbots, recommendation engines, and automation into your software to outpace the competition.",
     icon: Bot,
   },
   {
     title: "Automation Development",
-    description: "Automate your workflows, processes, and integrations to save time and reduce errors.",
+    description: "Business Automation – Streamline workflows and integrate disjointed tools to eliminate manual data entry and operational errors.",
     icon: Zap,
   },
 ];
@@ -258,14 +342,15 @@ const Contact = () => (
       <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
         <strong>Get In Touch</strong>
       </h2>
-      <div className="flex flex-col sm:flex-row justify-start items-start space-x-20"> 
-        <div className="flex flex-col text-left"> 
-          <p className="text-lg text-[#333332]">Phone: +201151359701</p>
-          <p className="text-lg text-[#333332]">Whatsapp: +201282617564</p>
+      <div className="flex flex-col sm:flex-row justify-start items-start space-x-20">
+        <div className="flex flex-col text-left">
+          <p className="text-lg text-[#333332] mb-4">Ready to start your next project?</p>
           <p className="text-lg text-[#333332]">Email: <a href="mailto:ahmadmesbahqa@gmail.com" className="text-[#333332] hover:underline">ahmadmesbahqa@gmail.com</a></p>
+          <p className="text-lg text-[#333332]">Whatsapp: +20 128 261 7564</p>
+          <p className="text-lg text-[#333332]">Phone: +20 115 135 9701</p>
         </div>
-        <div className="flex flex-col items-center space-y-6"> 
-          <div className="flex space-x-4"> 
+        <div className="flex flex-col items-center space-y-6">
+          <div className="flex space-x-4">
             <a href="mailto:ahmadmesbahqa@gmail.com" target="_blank" rel="noopener noreferrer" className="text-[#333332] hover:text-[#333332]">
               <Mail className="h-6 w-6" />
             </a>
@@ -276,15 +361,14 @@ const Contact = () => (
               <Github className="h-6 w-6" />
             </a>
           </div>
-          <a href="https://cal.com/ahmad-mesbahqa-sstmcl/30min" target="_blank" rel="noopener noreferrer" className="inline-block px-5 py-2 bg-[#333332] text-[#ded7c7] rounded-full text-sm font-semibold shadow hover:bg-[#222] transition">
-            Let's Meet
+          <a href="https://cal.com/ahmad-mesbah-sstmcl/secret" target="_blank" rel="noopener noreferrer" className="inline-block px-5 py-2 bg-[#333332] text-[#ded7c7] rounded-full text-sm font-semibold shadow hover:bg-[#222] transition">
+            Schedule a Call
           </a>
         </div>
       </div>
     </div>
   </section>
 );
-
 const Portfolio = () => (
   <div className="relative">
     <div className="min-h-screen bg-[#ded7c7] text-white flex">
