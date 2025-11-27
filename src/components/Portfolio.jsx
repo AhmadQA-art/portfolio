@@ -27,7 +27,6 @@ import agridustria11 from '../assets/agridustria_data/11.png';
 import mainLandingPage from '../assets/agridustria_data/main_landing_page.png';
 import SideNavigation from './SideNavigation';
 import ImageViewer from './ImageViewer';
-import CollapsibleSection from './CollapsibleSection';
 
 const Hero = () => (
   <div id="hero" className="relative overflow-hidden" style={{ backgroundColor: '#ded7c7' }}>
@@ -131,10 +130,11 @@ const Skills = () => (
 );
 
 const ProjectCard = ({ title, platform, description, keyHighlights, technologies, images, onViewProject }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const hasImages = images && images.length > 0;
 
   return (
-    <div className="border border-[#5c5e5d] bg-[#ded7c7] overflow-hidden group relative transition-shadow duration-300 hover:shadow-lg rounded-xl w-full max-w-md mx-auto">
+    <div className={`border border-[#5c5e5d] bg-[#ded7c7] overflow-hidden group relative transition-all duration-300 hover:shadow-lg rounded-xl w-full max-w-md mx-auto ${isExpanded ? 'h-auto' : 'h-96'}`}>
       {hasImages && (
         <div className="relative w-full h-40 sm:h-48 flex items-center justify-center">
           <img src={images[0]} alt={title} className="w-full h-40 sm:h-48 object-cover transition-all duration-300 rounded-t-xl" />
@@ -150,63 +150,46 @@ const ProjectCard = ({ title, platform, description, keyHighlights, technologies
       )}
       <div className="p-4 sm:p-6">
         <h3 className="text-lg sm:text-xl font-medium text-[#333332] mb-2 sm:mb-3">{title}</h3>
-        {platform && (
-          <div className="mb-3">
-            <h4 className="text-sm font-medium text-[#333332] mb-1">Platforms</h4>
-            <div className="flex flex-wrap gap-2 justify-start">
-              {platform.map((p, i) => (
-                <span key={i} className="px-2 py-1 text-xs text-white bg-[#333333] rounded-full">{p}</span>
-              ))}
-            </div>
-          </div>
-        )}
-        {description && (
-          <CollapsibleSection title="Description" hasMore={description.length > 100} inline>
-            {(isExpanded, toggleExpansion) => (
-              <p className="text-[#333332] text-opacity-80 text-sm leading-snug font-normal">
-                {isExpanded ? description : (
-                  <>
-                    {`${description.substring(0, 100)}...`}
-                    <button onClick={toggleExpansion} className="text-xs text-[#333332] hover:underline focus:outline-none ml-1">
-                      Show More
-                    </button>
-                  </>
-                )}
-              </p>
-            )}
-          </CollapsibleSection>
-        )}
-        {keyHighlights && keyHighlights.length > 0 && (
-          <CollapsibleSection title="Key Highlights" hasMore={keyHighlights.length > 1} inline>
-            {(isExpanded, toggleExpansion) => (
-              <ul className="list-disc list-inside text-[#333332] text-opacity-80 text-sm leading-snug">
-                {(isExpanded ? keyHighlights : keyHighlights.slice(0, 1)).map((highlight, index) => (
-                  <li key={index}>
-                    {highlight}
-                    {!isExpanded && index === 0 && (
-                      <button onClick={toggleExpansion} className="text-xs text-[#333332] hover:underline focus:outline-none ml-1">
-                        ...Show More
-                      </button>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </CollapsibleSection>
-        )}
-        {technologies && technologies.length > 0 && (
-          <CollapsibleSection title="Tech Stack" hasMore={technologies.length > 5}>
-            {(isExpanded) => (
-              <div className="flex flex-wrap gap-2">
-                {(isExpanded ? technologies : technologies.slice(0, 5)).map((tech, index) => (
-                  <span key={index} className="px-3 py-1 text-[#333332] border border-[#333333] bg-transparent hover:bg-[#333333] hover:bg-opacity-10 rounded-full text-xs">
-                    {tech}
-                  </span>
+        <div className={`transition-all duration-300 ${isExpanded ? 'max-h-full' : 'max-h-24 overflow-hidden'}`}>
+          {platform && (
+            <div className="mb-3">
+              <div className="flex flex-wrap gap-2 justify-start">
+                {platform.map((p, i) => (
+                  <span key={i} className="px-2 py-1 text-xs text-white bg-[#333333] rounded-full">{p}</span>
                 ))}
               </div>
-            )}
-          </CollapsibleSection>
-        )}
+            </div>
+          )}
+          {description && (
+            <p className="text-[#333332] text-opacity-80 text-sm leading-snug font-normal mb-3">
+              {description}
+            </p>
+          )}
+          {keyHighlights && keyHighlights.length > 0 && (
+            <ul className="list-disc list-inside text-[#333332] text-opacity-80 text-sm leading-snug mb-3">
+              {keyHighlights.map((highlight, index) => (
+                <li key={index}>{highlight}</li>
+              ))}
+            </ul>
+          )}
+          {technologies && technologies.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {technologies.map((tech, index) => (
+                <span key={index} className="px-3 py-1 text-[#333332] border border-[#333333] bg-transparent hover:bg-[#333333] hover:bg-opacity-10 rounded-full text-xs">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+        <div className="flex justify-end mt-2">
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-xs text-[#333332] hover:underline focus:outline-none"
+          >
+            {isExpanded ? 'Show Less' : 'Show More'}
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -291,11 +274,6 @@ const services = [
     title: "MVP Development",
     description: "Rapid MVP Launch – Turn your concept into a market-ready product in weeks, not months, to validate ideas and attract early investors.",
     icon: Code,
-  },
-  {
-    title: "Shopify Development",
-    description: "E-Commerce Solutions – Custom Shopify setup and integration designed to optimize the customer journey and increase sales.",
-    icon: ShoppingCart,
   },
   {
     title: "AI App Development",
