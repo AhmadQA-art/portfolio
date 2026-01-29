@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Linkedin, Github, Code, ShoppingCart, Bot, Zap } from 'lucide-react';
+import { Mail, Linkedin, Github, Code, ShoppingCart, Menu, X, Smartphone, Globe, CheckCircle, Award } from 'lucide-react';
 import profileImage from '../assets/profile2.jpeg';
 import chat from '../assets/chatbot.png';
 import saasLandingPage from '../assets/Saas_landing_page.png';
@@ -34,18 +34,18 @@ const Hero = () => (
       <div className="relative z-10 pb-8 min-h-screen flex flex-col md:flex-row items-center">
         <main className="flex flex-col md:flex-row items-center justify-between min-h-[400px] h-auto md:h-[80vh] px-4 sm:px-6 lg:px-8 w-full">
           <div className="w-full md:w-1/2 lg:text-left mr-0 md:mr-8 ml-0 mt-8 md:mt-0">
-            <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-center md:text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+            <h2 className="mb-3 text-3xl font-medium text-[#333332] sm:text-4xl md:text-4xl text-center md:text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
               <strong>Hi, I'm Ahmad</strong>
             </h2>
-            <h3 className="mb-3 text-lg font-medium text-[#333332] sm:text-xl md:text-2xl text-center md:text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+            <h3 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-2xl text-center md:text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
               Full-Stack Developer & Solutions Architect
             </h3>
-            <p className="text-base sm:text-lg text-[#333332] tracking-tight font-normal mt-1 max-w-xl mx-auto md:mx-0 text-center md:text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+            <p className="text-sm sm:text-base md:text-lg text-[#333332] tracking-tight font-normal mt-1 max-w-xl mx-auto md:mx-0 text-center md:text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
               I engineer scalable web applications and intelligent automation systems. I combine robust coding with rapid development strategies to build modern software that solves complex business problems and accelerates growth.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-4 items-center md:items-start justify-center md:justify-start">
               <a
-                href="https://cal.com/ahmad-mesbah-sstmcl/secret"
+                href="https://cal.com/alex-light-lkyjlq/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-5 py-2 bg-[#333332] text-[#ded7c7] rounded-full text-sm font-semibold shadow hover:bg-[#222] transition"
@@ -88,8 +88,6 @@ const Skills = () => (
             <div className="text-[#333332] text-lg font-normal">TypeScript</div>
             <div className="text-[#333332] text-lg font-normal">TailwindCSS</div>
             <div className="text-[#333332] text-lg font-normal">Framer Motion</div>
-            <div className="text-[#333332] text-lg font-normal">FlutterFlow</div>
-            <div className="text-[#333332] text-lg font-normal">Webflow</div>
             <div className="text-[#333332] text-lg font-normal">HTML/CSS</div>
           </div>
         </div>
@@ -106,12 +104,12 @@ const Skills = () => (
           </div>
         </div>
         <div>
-          <h3 className="text-xl font-medium text-[#333332] mb-3">AI & Automation</h3>
+          <h3 className="text-xl font-medium text-[#333332] mb-3">No Code Low Code Tools</h3>
           <div className="space-y-2">
-            <div className="text-[#333332] text-lg font-normal">n8n</div>
-            <div className="text-[#333332] text-lg font-normal">LangChain</div>
-            <div className="text-[#333332] text-lg font-normal">OpenAI API</div>
+            <div className="text-[#333332] text-lg font-normal">FlutterFlow</div>
             <div className="text-[#333332] text-lg font-normal">Bubble.io</div>
+            <div className="text-[#333332] text-lg font-normal">Webflow</div>
+            <div className="text-[#333332] text-lg font-normal">Framer</div>
           </div>
         </div>
         <div>
@@ -276,14 +274,24 @@ const services = [
     icon: Code,
   },
   {
-    title: "AI App Development",
-    description: "AI & Intelligent Apps – Integrate custom chatbots, recommendation engines, and automation into your software to outpace the competition.",
-    icon: Bot,
+    title: "Mobile App Development",
+    description: "Cross-Platform Mobile Apps – Build native-quality iOS and Android applications with a single codebase, delivering seamless user experiences across all devices.",
+    icon: Smartphone,
   },
   {
-    title: "Automation Development",
-    description: "Business Automation – Streamline workflows and integrate disjointed tools to eliminate manual data entry and operational errors.",
-    icon: Zap,
+    title: "Ecommerce Website Building",
+    description: "High-Converting E-Commerce – Launch feature-rich online stores with secure payment processing, inventory management, and optimized checkout flows that drive sales.",
+    icon: ShoppingCart,
+  },
+  {
+    title: "Web Applications Development",
+    description: "Custom Web Applications – Develop scalable, cloud-based web apps tailored to your business needs, from SaaS platforms to internal tools that streamline operations.",
+    icon: Globe,
+  },
+  {
+    title: "Quality Assurance As A Service (QAAS)",
+    description: "Professional QA Testing – Get comprehensive software testing and quality assurance for your projects without hiring full-time QA engineers. Pay per project, ensure quality delivery.",
+    icon: CheckCircle,
   },
 ];
 
@@ -305,10 +313,40 @@ const Services = () => (
       <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-left" style={{ fontFamily: 'Manrope, Manrope Placeholder, sans-serif' }}>
         <strong>Services I Offer</strong>
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
         {services.map((service, idx) => (
           <ServiceCard key={idx} title={service.title} description={service.description} icon={service.icon} />
         ))}
+      </div>
+    </div>
+  </section>
+);
+
+const Certifications = () => (
+  <section id="certifications" className="py-20 bg-[#ded7c7] bg-opacity-50">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
+        <strong>Certifications</strong>
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <div className="border border-[#5c5e5d] bg-[#ded7c7] p-6 rounded-lg">
+          <div className="flex items-start space-x-4">
+            <Award className="h-8 w-8 text-[#333332] flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="text-lg font-medium text-[#333332] mb-2">Udacity Nanodegree</h3>
+              <p className="text-[#333332] text-sm">Professional Web Developer</p>
+            </div>
+          </div>
+        </div>
+        <div className="border border-[#5c5e5d] bg-[#ded7c7] p-6 rounded-lg">
+          <div className="flex items-start space-x-4">
+            <Award className="h-8 w-8 text-[#333332] flex-shrink-0 mt-1" />
+            <div>
+              <h3 className="text-lg font-medium text-[#333332] mb-2">ISTQB Certified Tester</h3>
+              <p className="text-[#333332] text-sm">Foundation Level</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -320,7 +358,7 @@ const Contact = () => (
       <h2 className="mb-3 text-xl font-medium text-[#333332] sm:text-2xl md:text-3xl text-left" style={{ fontFamily: '"Manrope", "Manrope Placeholder", sans-serif' }}>
         <strong>Get In Touch</strong>
       </h2>
-      <div className="flex flex-col sm:flex-row justify-start items-start space-x-20">
+      <div className="flex flex-col sm:flex-row justify-start items-start space-y-6 sm:space-y-0 sm:space-x-20">
         <div className="flex flex-col text-left">
           <p className="text-lg text-[#333332] mb-4">Ready to start your next project?</p>
           <p className="text-lg text-[#333332]">Email: <a href="mailto:ahmadmesbahqa@gmail.com" className="text-[#333332] hover:underline">ahmadmesbahqa@gmail.com</a></p>
@@ -339,7 +377,7 @@ const Contact = () => (
               <Github className="h-6 w-6" />
             </a>
           </div>
-          <a href="https://cal.com/ahmad-mesbah-sstmcl/secret" target="_blank" rel="noopener noreferrer" className="inline-block px-5 py-2 bg-[#333332] text-[#ded7c7] rounded-full text-sm font-semibold shadow hover:bg-[#222] transition">
+          <a href="https://cal.com/alex-light-lkyjlq/30min" target="_blank" rel="noopener noreferrer" className="inline-block px-5 py-2 bg-[#333332] text-[#ded7c7] rounded-full text-sm font-semibold shadow hover:bg-[#222] transition">
             Schedule a Call
           </a>
         </div>
@@ -347,19 +385,92 @@ const Contact = () => (
     </div>
   </section>
 );
-const Portfolio = () => (
-  <div className="relative">
-    <div className="min-h-screen bg-[#ded7c7] text-white flex">
-      <SideNavigation />
-      <div className="flex-1 ml-56">
-        <Hero />
-        <Skills />
-        <Services />
-        <Projects />
-        <Contact />
+const Portfolio = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  return (
+    <div className="relative">
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="fixed top-4 right-4 z-50 sm:hidden bg-[#333332] text-[#ded7c7] p-3 rounded-full shadow-lg hover:bg-[#222] transition"
+        aria-label="Toggle menu"
+      >
+        {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+      </button>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 bg-[#ded7c7] bg-opacity-95 z-40 sm:hidden flex flex-col items-center justify-center space-y-8">
+          <a
+            href="#hero"
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-[#333332] hover:text-[#333332] hover:opacity-70 transition font-semibold text-2xl tracking-wide"
+          >
+            About
+          </a>
+          <a
+            href="#skills"
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-[#333332] hover:text-[#333332] hover:opacity-70 transition font-semibold text-2xl tracking-wide"
+          >
+            Skills
+          </a>
+          <a
+            href="#certifications"
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-[#333332] hover:text-[#333332] hover:opacity-70 transition font-semibold text-2xl tracking-wide"
+          >
+            Certifications
+          </a>
+          <a
+            href="#services"
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-[#333332] hover:text-[#333332] hover:opacity-70 transition font-semibold text-2xl tracking-wide"
+          >
+            Services
+          </a>
+          <a
+            href="#projects"
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-[#333332] hover:text-[#333332] hover:opacity-70 transition font-semibold text-2xl tracking-wide"
+          >
+            Projects
+          </a>
+          <a
+            href="#contact"
+            onClick={() => setMobileMenuOpen(false)}
+            className="text-[#333332] hover:text-[#333332] hover:opacity-70 transition font-semibold text-2xl tracking-wide"
+          >
+            Contact
+          </a>
+          <div className="flex space-x-6 mt-8">
+            <a href="mailto:ahmadmesbahqa@gmail.com" target="_blank" rel="noopener noreferrer" className="text-[#333332] hover:text-[#333332] hover:opacity-70">
+              <Mail className="h-8 w-8" />
+            </a>
+            <a href="https://www.linkedin.com/in/ahmad-mohamed-8ba9a131a/" target="_blank" rel="noopener noreferrer" className="text-[#333332] hover:text-[#333332] hover:opacity-70">
+              <Linkedin className="h-8 w-8" />
+            </a>
+            <a href="https://github.com/AhmadQA-art" target="_blank" rel="noopener noreferrer" className="text-[#333332] hover:text-[#333332] hover:opacity-70">
+              <Github className="h-8 w-8" />
+            </a>
+          </div>
+        </div>
+      )}
+
+      <div className="min-h-screen bg-[#ded7c7] text-white flex">
+        <SideNavigation />
+        <div className="flex-1 sm:ml-56 px-4 sm:px-6">
+          <Hero />
+          <Skills />
+          <Certifications />
+          <Services />
+          <Projects />
+          <Contact />
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Portfolio;
